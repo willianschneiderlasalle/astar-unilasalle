@@ -12,8 +12,14 @@ class Node:
 def calc_total_cost(path, lmap):
     total_cost = 0
     for position in path:
+        cost = lmap[position[0]][position[1]]
+
         if(position != start_pos):
-            total_cost += lmap[position[0]][position[1]]
+            if(cost == 0):
+                total_cost += 1
+            else:
+                total_cost += cost
+            
     return total_cost
 
 def astar(lmap, start, goal):
