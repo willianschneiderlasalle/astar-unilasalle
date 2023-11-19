@@ -91,13 +91,13 @@ def start_vars():
                 lmap[x][i] = items[i]
 
     while not goal_pos:
-        goal_input = input(f"Map size is {map_size}\nInsert final coords (example: '6 4'): ")
+        goal_input = input(f"Map size is {map_size[1],map_size[0]}\nInsert final coords (example: '6 4'): ")
         goal_pos = list(map(int,goal_input.split()))
 
         if len(goal_pos) != 2:
             print("\nERROR: Invalid entry\n")
             goal_pos = []
-        elif goal_pos[0] > map_size[0] or goal_pos[1] > map_size[1]:
+        elif goal_pos[0] > map_size[1]-1 or goal_pos[1] > map_size[0]-1:
             print("\nERROR: At least one given coord is bigger than map size\n")
             goal_pos = []
         elif goal_pos[0] < 0 or goal_pos[1] < 0:
